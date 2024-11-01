@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Git 리포지토리 클론
-git clone https://github.com/Denstiny-ssu/FE.git
-cd FE
-
 # npm 및 TypeScript 설치
 sudo apt install -y npm
 npm install
@@ -18,31 +14,28 @@ cd ~/FE/public
 # Nginx 설치
 sudo apt install -y nginx
 
-# 호스트 IP 가져오기
+# HOST_IP 변수 설정
 HOST_IP=$(hostname | sed 's/ip-\([0-9]*\)-\([0-9]*\)-\([0-9]*\)-\([0-9]*\)/\1.\2.\3.\4/')
-NGINX_CONF="/etc/nginx/sites-available/15.165.230.191.conf"
+NGINX_CONF="/etc/nginx/sites-available/denstiny.com.conf"
 
-# Nginx 설정 파일 작성
-cat <<EOF | sudo tee $NGINX_CONF
-http {
-    server {
-        listen 80;
-        server_name $HOST_IP;
+# Nginx 설정 파일 작성 (덮어쓰기)
+cat <<EOF | sudo tee $NGINX_CONF > /dev/null
+server {
+    listen 80;
+    server_name denstiny;  # 또는 원하는 도메인 이름 
 
-        root /home/ubuntu/FE/dist;  # Vite 프로젝트의 dist 폴더 경로
+    root /home/ubuntu/FE/dist;  # Vite 프로젝트의 dist 폴더 경로
 
-        index index.html;
+    index index.html;
 
-        location / {
-            try_files \$uri /index.html;
-        }
+    location / {
+        try_files \$uri /index.html;
     }
 }
 EOF
 
-# 심볼릭 링크로 Nginx 설정 활성화
+# 심볼릭 링크로 Nginx 설정 활성화 (기존 링크가 있다면 삭제 후 재생성)
 sudo ln -sf $NGINX_CONF /etc/nginx/sites-enabled/
 
 # Nginx 테스트 및 재시작
-sudo nginx -t
-sudo systemctl restart nginx
+sudo nginx -t && sudo systemctl restart nginx
