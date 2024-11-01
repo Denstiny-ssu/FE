@@ -11,7 +11,9 @@ mv ~/FE/src/routes/community ~/FE/src/routes/Community
 mv ~/FE/src/address.ts ~/FE/src/Address.ts
 cd ~/FE/public
 
-sudo chown -R www-data:www-data /home/ubuntu/FE
+npm run build
+
+#sudo chown -R www-data:www-data /home/ubuntu/FE
 sudo chmod -R 755 /home/ubuntu
 sudo chmod -R 755 /home/ubuntu/FE
 sudo chmod -R 755 /home/ubuntu/FE/dist
