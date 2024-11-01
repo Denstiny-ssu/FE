@@ -20,7 +20,7 @@ sudo apt install -y nginx
 
 # 호스트 IP 가져오기
 HOST_IP=$(hostname | sed 's/ip-\([0-9]*\)-\([0-9]*\)-\([0-9]*\)-\([0-9]*\)/\1.\2.\3.\4/')
-NGINX_CONF="/etc/nginx/sites-available/denstiny.com"
+NGINX_CONF="/etc/nginx/sites-available/15.165.230.191.conf"
 
 # Nginx 설정 파일 작성
 cat <<EOF | sudo tee $NGINX_CONF
