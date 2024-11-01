@@ -2,7 +2,7 @@
 export const MAIN_PAGE = 'http://localhost:5173/';
 
 //////// SERVER //////////
-export const SERVER_DOMAIN = "http://211.221.75.4:8080"
+export const SERVER_DOMAIN = "http://15.165.230.191:8080"
 export const SERVER_ENDPOINT = SERVER_DOMAIN + "/api/login/endpoint";
 export const LOGOUT = SERVER_DOMAIN + "/api/public/logout";
 export const LOGIN_POST = SERVER_DOMAIN + "/api/users/login";

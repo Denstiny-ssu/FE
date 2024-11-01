@@ -12,7 +12,9 @@ mv ~/FE/src/address.ts ~/FE/src/Address.ts
 cd ~/FE/public
 
 sudo chown -R www-data:www-data /home/ubuntu/FE
+sudo chmod -R 755 /home/ubuntu
 sudo chmod -R 755 /home/ubuntu/FE
+sudo chmod -R 755 /home/ubuntu/FE/dist
 
 # Nginx 설치
 sudo apt install -y nginx
