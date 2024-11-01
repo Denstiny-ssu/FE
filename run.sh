@@ -11,6 +11,9 @@ mv ~/FE/src/routes/community ~/FE/src/routes/Community
 mv ~/FE/src/address.ts ~/FE/src/Address.ts
 cd ~/FE/public
 
+sudo chown -R www-data:www-data /home/ubuntu/FE
+sudo chmod -R 755 /home/ubuntu/FE
+
 # Nginx 설치
 sudo apt install -y nginx
 
@@ -39,3 +42,6 @@ sudo ln -sf $NGINX_CONF /etc/nginx/sites-enabled/
 
 # Nginx 테스트 및 재시작
 sudo nginx -t && sudo systemctl restart nginx
+
+#설정 확인
+sudo systemctl status nginx
