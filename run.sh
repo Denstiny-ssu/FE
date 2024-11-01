@@ -47,3 +47,4 @@ sudo nginx -t && sudo systemctl restart nginx
 
 #설정 확인
 sudo systemctl status nginx
+sudo tail -f /var/log/nginx/error.log
